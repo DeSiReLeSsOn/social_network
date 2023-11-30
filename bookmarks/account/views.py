@@ -6,6 +6,7 @@ from django.contrib import messages
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
 from .models import Profile
+from django.contrib import messages
 
 
 def user_login(request):
@@ -83,3 +84,5 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+
+

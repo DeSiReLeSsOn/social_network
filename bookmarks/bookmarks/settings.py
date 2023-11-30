@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
+
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -76,8 +80,10 @@ WSGI_APPLICATION = 'bookmarks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'social_network',
+        'USER': 'social_network',
+        'PASSWORD': '3452',
     }
 }
 
@@ -139,4 +145,25 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTHENTICATION_BACKENDS = [
  'django.contrib.auth.backends.ModelBackend',
  'account.authentication.EmailAuthBackend',
+ 'social_core.backends.vk.VKOAuth2',
+ 'social_core.backends.google.GoogleOAuth2',
 ]
+
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
+
+
+SOCIAL_AUTH_VK_OAUTH2_CLIENT_ID = '51804492'
+SOCIAL_AUTH_VK_OAUTH2_CLIENT_SECRET = 'z1nDejvzQ5vH5GcZw8xB'
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+
+
+
+#s = , '851ea206851ea206851ea206e38608db4a8851e851ea206e079db78db4f263f23bb0d80'
+
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+
+
