@@ -171,3 +171,17 @@ SOCIAL_AUTH_YANDEX_OAUTH2_KEY = 'b4c7a277a78b432696ca2c851ed5a684'
 SOCIAL_AUTH_YANDEX_OAUTH2_SECRET = 'f7f98ae5a1924f7baeb830cd5a50a695'
 SOCIAL_AUTH_YANDEX_OAUTH2_SCOPE = ['email']
 
+
+
+SOCIAL_AUTH_PIPELINE = [
+ 'social_core.pipeline.social_auth.social_details',
+ 'social_core.pipeline.social_auth.social_uid',
+ 'social_core.pipeline.social_auth.auth_allowed',
+ 'social_core.pipeline.social_auth.social_user',
+ 'social_core.pipeline.user.get_username',
+ 'social_core.pipeline.user.create_user',
+ 'account.authentication.create_profile',
+ 'social_core.pipeline.social_auth.associate_user',
+ 'social_core.pipeline.social_auth.load_extra_data',
+ 'social_core.pipeline.user.user_details',
+]
