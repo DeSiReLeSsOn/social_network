@@ -30,8 +30,15 @@
     <div class="social">
         <ul>
             <li class="vk">
-                <a href="{% url "social:begin" "vk-oauth2" %}">
+                <a href="{% url "social:begin" "vk-oauth2" %}" >
                     Sing in with VK
+                    <img src="/static/vk.png">
+                </a>
+            </li>
+            <li class="yandex">
+                <a href="{% url 'social:begin' 'yandex-oauth2' %}">
+                    Sign in with Yandex
+                    <img src="/static/yandex.png">
                 </a>
             </li>
         </ul>

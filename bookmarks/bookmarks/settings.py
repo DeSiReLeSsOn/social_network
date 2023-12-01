@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'bookmarks.urls'
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect'
             ],
         },
     },
@@ -146,7 +148,7 @@ AUTHENTICATION_BACKENDS = [
  'django.contrib.auth.backends.ModelBackend',
  'account.authentication.EmailAuthBackend',
  'social_core.backends.vk.VKOAuth2',
- 'social_core.backends.google.GoogleOAuth2',
+ 'social_core.backends.yandex.YandexOAuth2',
 ]
 
 
@@ -154,16 +156,18 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
-
-SOCIAL_AUTH_VK_OAUTH2_CLIENT_ID = '51804492'
-SOCIAL_AUTH_VK_OAUTH2_CLIENT_SECRET = 'z1nDejvzQ5vH5GcZw8xB'
+SOCIAL_AUTH_VK_OAUTH2_KEY = '51805458'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'rfeaCtDXbZ7kTDWe49nl'
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
-
+VK_OAUTH2_CALLBACK_URL = 'https://mysite.com:8000/social-auth/complete/vk-oauth2/'
 
 
 #s = , '851ea206851ea206851ea206e38608db4a8851e851ea206e079db78db4f263f23bb0d80'
 
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 
+SOCIAL_AUTH_YANDEX_OAUTH2_KEY = 'b4c7a277a78b432696ca2c851ed5a684'
+SOCIAL_AUTH_YANDEX_OAUTH2_SECRET = 'f7f98ae5a1924f7baeb830cd5a50a695'
+SOCIAL_AUTH_YANDEX_OAUTH2_SCOPE = ['email']
 
