@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 
-class Images(models.Model):
+class Image(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='images_created', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, blank=True)
