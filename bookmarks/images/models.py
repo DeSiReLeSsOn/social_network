@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils.text import slugify
 
 class Images(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='images_created', on_delete=models.CASCADE)
@@ -10,6 +11,11 @@ class Images(models.Model):
     description = models.TextField(blank=True)
     created = models.DateField(auto_now_add=True)
 
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         indexes = [
