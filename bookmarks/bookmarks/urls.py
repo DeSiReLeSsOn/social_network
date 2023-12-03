@@ -27,8 +27,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('social-auth/',
          include('social_django.urls', namespace='social')),
-    path('', include('social_django.urls')),
-    #path('oauth/complete/vk/', social_views.complete, name='socialauth_complete'),
+    #path('', include('social_django.urls')),
+    path('images/', include('images.urls', namespace='images')),
 ]
 
 
